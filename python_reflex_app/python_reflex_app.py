@@ -13,26 +13,53 @@ class State(rx.State):
 
 def index() -> rx.Component:
     # Welcome Page (Index)
+    message = """Are you a cat lover? Discover fascinating and fun facts about
+                our feline friends with Cat Fact Finder. From quirky behaviors to 
+                historical tidbits, our app provides a treasure trove of information 
+                about cats. Join us today and become a cat facts expert!"""
     return rx.container(
         rx.color_mode.button(position="top-right"),
         rx.vstack(
-            rx.heading("Welcome to Reflex!", size="9"),
-            rx.text(
-                "Get started by editing ",
-                rx.code(f"{config.app_name}/{config.app_name}.py"),
+            rx.heading("Hello World!", size="9"),
+            rx.heading("Welcome to the Cat Facts Application", size="8"),
+            rx.text( message,
                 size="5",
             ),
             rx.link(
-                rx.button("Check out our docs!"),
-                href="https://reflex.dev/docs/getting-started/introduction/",
+                rx.button("Fetch data…"),
+                href="https://cat-fact.herokuapp.com/facts/",
                 is_external=True,
             ),
             spacing="5",
             justify="center",
             min_height="85vh",
         ),
+        rx.hstack(
+            rx.list.ordered(
+                rx.list.item(
+                    rx.link(
+                        rx.button("Project GitHub link"),
+                        href="https://github.com/Nemwel-Boniface/python-reflex-app",
+                        is_external=True,
+                    ),
+                ),
+                rx.list.item(
+                    rx.link(
+                        rx.button("Made with love by Nemwel"),
+                        href="https://www.linkedin.com/in/nemwel-nyandoro/",
+                        is_external=True,
+                    ),
+                ),
+                list_style_type="none",
+            ),
+            as_child=True,
+            justify="end",
+            min_height="15vh",
+        ),
         rx.logo(),
     )
+
+
 
 
 app = rx.App()
