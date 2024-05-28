@@ -32,20 +32,47 @@ def index() -> rx.Component:
                 return cat_facts
         except requests.exceptions.RequestException as e:
             print('Error', e)
-            return None            
+            return None
 
-    print(fetch_cat_facts())
+    cat_facts = fetch_cat_facts()
 
-    return rx.container(
+    rows = []
+    for item in cat_facts:
+        fact = item["text"]
+        verified = item["status"]["verified"]
+        created_on = item["createdAt"]
+    
+        row = rx.table.row(
+            rx.table.row_header_cell(fact),
+            rx.table.cell(str(verified)),
+            rx.table.cell(created_on),
+        )
+        rows.append(row)
+
+    cat_Facts_Table = rx.box(
+        rx.table.root(
+            rx.table.header(
+                rx.table.row(
+                    rx.table.column_header_cell("Cat Fact"),
+                    rx.table.column_header_cell("Verified"),
+                    rx.table.column_header_cell("Created On"),
+                ),
+            ),
+            rx.table.body(*rows),
+        ),
+        width="100%",
+    )
+            
+
+    mainpage = rx.container(
         rx.color_mode.button(position="top-right"),
         rx.vstack(
             rx.heading("Hello World!", size="9"),
             rx.heading("Welcome to the Cat Facts Application", size="8"),
-            rx.text( message,
-                size="5",
-            ),
+            rx.text(message, size="5"),
             rx.link(
                 rx.button("Fetch data…"),
+                # on_click=fetch_cat_facts,
                 href="https://cat-fact.herokuapp.com/facts/",
                 is_external=True,
             ),
@@ -53,6 +80,7 @@ def index() -> rx.Component:
             justify="center",
             min_height="85vh",
         ),
+        cat_Facts_Table,
         rx.hstack(
             rx.list.ordered(
                 rx.list.item(
@@ -79,6 +107,7 @@ def index() -> rx.Component:
     )
 
 
+    return mainpage
 
 
 app = rx.App()
