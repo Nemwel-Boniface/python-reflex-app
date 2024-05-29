@@ -61,3 +61,38 @@ The app is configured using a `Config` object from Reflex:
 config = rx.Config(
     app_name="reflex_dev",
 )
+```
+
+# Project deployment
+Reflex offers an easy way to deploy your applications which can be checked out from their main docs [here](https://reflex.dev/docs/hosting/deploy-quick-start/). I was able to deploy my own project and if you are interested in having a look at it online, please do so from this URL ```https://python-reflex-app.reflex.run/```
+
+
+**If you would like to have a better view of each individual feature implemented, please visit the [Pull Requests page](https://github.com/Nemwel-Boniface/python-reflex-app/pulls) and have a look at the closed PRs where you will be able to see what was changed at what specific point in time.**
+
+
+## Authors
+
+👤 **Nemwel Boniface**
+
+- GitHub: [@Nemwel Boniface](https://github.com/Nemwel-Boniface)
+- Twitter: [@Nemwel Boniface](https://twitter.com/nemwel_bonie)
+- LinkedIn: [@Nemwel Bonifacej](https://www.linkedin.com/in/nemwel-nyandoro/)
+
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/Nemwel-Boniface/python-reflex-app/issues).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+- To God be the Glory :pray: 
+- Me for believing that I can! :sunglasses: 
+
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.
